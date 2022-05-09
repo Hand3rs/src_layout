@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my_package"
+description = "My package description"
+readme = "README.rst"
+keywords = ["one", "two"]
+license = { text = "BSD 3-Clause License" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "logzero",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "black",
+    "tox",
+    "pylint",
+]
+
+[project.scripts]
+foo = "main:main_func"
+
+[tool]
+[tool.black]
+line-length = 120
+
+[pylint]
+[tool.pylint.FORMAT]
+max-line-length = 120
+
+[tool.pylint.MASTER]
+load-plugins = """
+            pylint.extensions.emptystring,
+            pylint.extensions.docparams,
+            pylint.extensions.docstyle,
+            pylint.extensions.typing
+            """
+
+[tool.pylint.messages_control]
+disable = """
+            C0114,
+            """

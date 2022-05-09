@@ -18,10 +18,10 @@ dynamic = ["version"]
 
 [project.optional-dependencies]
 test = [
-    "pytest",
     "black",
-    "tox",
     "pylint",
+    "pytest",
+    "tox",
 ]
 
 [project.scripts]
